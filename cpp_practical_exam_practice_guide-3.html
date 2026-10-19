@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f7fb">
+<title>C++ Practical Exam Practice Guide</title>
+<style>
+  :root { --ink:#202938; --muted:#64748b; --line:#dce3ec; --paper:#ffffff; --bg:#f5f7fb; --accent:#2457a7; --soft:#eaf1ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  header { padding:28px 18px 24px; background:#fff; border-bottom:1px solid var(--line); }
+  .wrap { width:min(760px,100%); margin:0 auto; }
+  .eyebrow { color:var(--accent); font-size:.78rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+  h1 { font-size:clamp(1.6rem,6vw,2.25rem); line-height:1.15; margin:.45rem 0 .7rem; }
+  .sub { color:var(--muted); margin:0; }
+  main { padding:18px 14px 36px; }
+  .info { background:var(--soft); border:1px solid #d4e2ff; border-radius:14px; padding:14px 16px; margin-bottom:16px; }
+  .info strong { display:block; margin-bottom:4px; }
+  .tools { display:flex; gap:8px; margin:14px 0; }
+  input[type="search"] { width:100%; min-width:0; border:1px solid var(--line); border-radius:12px; padding:12px 14px; font:inherit; background:#fff; color:var(--ink); }
+  button { font:inherit; cursor:pointer; }
+  .plain-btn { border:1px solid var(--line); background:#fff; border-radius:12px; padding:10px 12px; white-space:nowrap; color:var(--ink); }
+  .progress { background:#fff; border:1px solid var(--line); padding:13px 15px; border-radius:14px; margin-bottom:14px; }
+  .progress-line { height:7px; background:#e7ebf2; border-radius:99px; overflow:hidden; margin-top:8px; }
+  .progress-fill { height:100%; width:0; background:var(--accent); transition:width .2s; }
+  .card { background:var(--paper); border:1px solid var(--line); border-radius:16px; margin:12px 0; overflow:hidden; }
+  details summary { list-style:none; cursor:pointer; padding:16px; display:flex; align-items:flex-start; gap:12px; }
+  details summary::-webkit-details-marker { display:none; }
+  .num { display:grid; place-items:center; min-width:36px; height:36px; border-radius:10px; background:var(--soft); color:var(--accent); font-weight:800; }
+  .summary-copy { flex:1; min-width:0; }
+  .summary-copy strong { display:block; font-size:1.04rem; line-height:1.3; }
+  .tag { display:inline-block; color:var(--muted); font-size:.78rem; margin-top:5px; }
+  .chevron { color:var(--muted); font-size:1.2rem; padding-top:3px; }
+  details[open] .chevron { transform:rotate(180deg); }
+  .content { border-top:1px solid var(--line); padding:14px 16px 17px; }
+  .content h3 { font-size:.9rem; margin:14px 0 5px; }
+  .content h3:first-child { margin-top:0; }
+  .content ol { padding-left:22px; margin:6px 0 12px; }
+  .deliverables { background:#f8fafc; border-radius:10px; padding:11px 12px; margin-top:12px; }
+  .deliverables ul { margin:5px 0 0; padding-left:20px; }
+  .done-row { display:flex; align-items:center; gap:9px; border-top:1px solid var(--line); margin-top:14px; padding-top:13px; color:var(--muted); font-size:.92rem; }
+  input[type="checkbox"] { width:19px; height:19px; accent-color:var(--accent); }
+  .tip { color:var(--muted); font-size:.9rem; margin-top:20px; }
+  .empty { display:none; padding:20px; text-align:center; color:var(--muted); }
+  footer { text-align:center; padding:18px; color:var(--muted); font-size:.85rem; }
+  @media (min-width:600px) { main { padding-top:24px; } details summary { padding:18px; } .content { padding:16px 20px 20px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Department of Computer Science</div>
+    <h1>C++ Practical Exam<br>Practice Guide</h1>
+    <p class="sub">10 practice problems · C++ and basic data structures · October 2026</p>
+  </div>
+</header>
+<main class="wrap">
+  <section class="info">
+    <strong>How to practise</strong>
+    Attempt each problem on your own before checking your notes. These are practice questions—not the examination questions. Data structures are limited to arrays, stacks, and queues. For every problem, prepare the aim, source code, sample input/output where relevant, and result.
+  </section>
+  <section class="progress" aria-live="polite">
+    <div><strong id="progressText">0 of 10 completed</strong> <span style="color:var(--muted)">· Tick a problem when you can solve it without help.</span></div>
+    <div class="progress-line"><div class="progress-fill" id="progressFill"></div></div>
+  </section>
+  <div class="tools">
+    <input id="search" type="search" placeholder="Search topics, e.g. array or stack" aria-label="Search practice problems">
+    <button class="plain-btn" id="toggleAll" type="button">Open all</button>
+  </div>
+  <div id="questions">
+    <article class="card" data-search="class objects student result marks average">
+      <details>
+        <summary><span class="num">01</span><span class="summary-copy"><strong>Student Mark Report</strong><span class="tag">Classes and Objects</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Create a class named <code>Student</code> containing the student's name, register number, and marks in three subjects.
+          <ol><li>Read the student details and three marks.</li><li>Calculate the total and average.</li><li>Display the student details, total, and average.</li></ol>
+          <div class="deliverables"><strong>Practise submitting</strong><ul><li>Aim and C++ source code</li><li>Sample input and output</li><li>Result</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="function overloading area functions">
+      <details>
+        <summary><span class="num">02</span><span class="summary-copy"><strong>Area Calculator</strong><span class="tag">Functions and Function Overloading</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Write a C++ program with overloaded functions named <code>area()</code>.
+          <ol><li>Calculate the area of a square using its side.</li><li>Calculate the area of a rectangle using length and breadth.</li><li>Display both results with suitable labels.</li></ol>
+          <div class="deliverables"><strong>Remember</strong><ul><li>Use the same function name with different parameter lists.</li><li>Include aim, code, sample output, and result.</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="constructor book details price">
+      <details>
+        <summary><span class="num">03</span><span class="summary-copy"><strong>Book Details</strong><span class="tag">Constructors</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Create a class named <code>Book</code> with a title, author, and price.
+          <ol><li>Use a constructor to initialise the book details.</li><li>Create an object using the constructor.</li><li>Display all the details clearly.</li></ol>
+          <div class="deliverables"><strong>Check yourself</strong><ul><li>Does the constructor initialise every required data member?</li><li>Does the output show the title, author, and price?</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="inheritance employee salary allowance">
+      <details>
+        <summary><span class="num">04</span><span class="summary-copy"><strong>Employee Pay Details</strong><span class="tag">Inheritance</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Create a base class <code>Employee</code> with an employee name and basic salary. Derive a class <code>PaySlip</code>.
+          <ol><li>Read the employee name and basic salary.</li><li>Calculate an allowance equal to 10% of basic salary.</li><li>Display the name, basic salary, allowance, and total pay.</li></ol>
+          <div class="deliverables"><strong>Remember</strong><ul><li>Keep common employee details in the base class.</li><li>Show how the derived class uses inherited data.</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="pointers swap two numbers">
+      <details>
+        <summary><span class="num">05</span><span class="summary-copy"><strong>Swap Two Numbers</strong><span class="tag">Pointers</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Write a C++ program to swap two integer values using pointers.
+          <ol><li>Read two integers.</li><li>Pass their addresses to a swapping function.</li><li>Display the values before and after swapping.</li></ol>
+          <div class="deliverables"><strong>Check yourself</strong><ul><li>Use pointer parameters and dereference them to change the original values.</li><li>Test with different positive and negative integers.</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="array student marks average largest smallest">
+      <details>
+        <summary><span class="num">06</span><span class="summary-copy"><strong>Student Marks Analysis</strong><span class="tag">Arrays</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Write a C++ program using an array to store marks scored by six students in a test.
+          <ol><li>Read and display the six marks.</li><li>Calculate the total and average marks.</li><li>Find and display the highest mark.</li></ol>
+          <div class="deliverables"><strong>Check yourself</strong><ul><li>Use a loop to input and display the array.</li><li>Use a running total and compare values to find the highest mark.</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="stack push pop display integers">
+      <details>
+        <summary><span class="num">07</span><span class="summary-copy"><strong>Stack of Integers</strong><span class="tag">Stack</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Implement a stack of integers using an array.
+          <ol><li>Provide options to push an element, pop an element, and display the stack.</li><li>Display a message when the stack is full.</li><li>Display a message when attempting to pop from an empty stack.</li></ol>
+          <div class="deliverables"><strong>Check yourself</strong><ul><li>Use a <code>top</code> variable.</li><li>A stack follows LIFO: last in, first out.</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="queue enqueue dequeue customer numbers front rear">
+      <details>
+        <summary><span class="num">08</span><span class="summary-copy"><strong>Queue of Customer Numbers</strong><span class="tag">Queue</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Implement a simple queue of integers using an array.
+          <ol><li>Provide options to insert an element, delete an element, and display the queue.</li><li>Handle queue-full and queue-empty conditions.</li><li>Display the elements in queue order.</li></ol>
+          <div class="deliverables"><strong>Check yourself</strong><ul><li>Track the <code>front</code> and <code>rear</code> positions.</li><li>A queue follows FIFO: first in, first out.</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="array search number linear search">
+      <details>
+        <summary><span class="num">09</span><span class="summary-copy"><strong>Search for a Number</strong><span class="tag">Arrays</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Write a C++ program to store eight integers in an array and search for a value entered by the user.
+          <ol><li>Read and display the eight integers.</li><li>Ask the user to enter the number to search for.</li><li>Use linear search and display whether the number was found.</li></ol>
+          <div class="deliverables"><strong>Check yourself</strong><ul><li>Compare the search value with each array element.</li><li>Display a clear message if the value is not present.</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+    <article class="card" data-search="queue menu enqueue dequeue student tokens">
+      <details>
+        <summary><span class="num">10</span><span class="summary-copy"><strong>Token Queue System</strong><span class="tag">Queue</span></span><span class="chevron">⌄</span></summary>
+        <div class="content">
+          <h3>Problem</h3>
+          Create a menu-driven C++ program to manage customer token numbers in a queue implemented using an array.
+          <ol><li>Allow a token to be added to the queue.</li><li>Allow the next token to be served and removed.</li><li>Display the waiting tokens and handle an empty queue.</li></ol>
+          <div class="deliverables"><strong>Check yourself</strong><ul><li>Use queue insertion and deletion logic.</li><li>Make sure tokens are served in FIFO order.</li></ul></div>
+          <label class="done-row"><input class="done" type="checkbox"> I can solve this without help.</label>
+        </div>
+      </details>
+    </article>
+  </div>
+  <div class="empty" id="empty">No matching practice questions. Try another keyword.</div>
+  <p class="tip"><strong>Exam checklist:</strong> Write the aim first, keep the code readable, compile and test it, show sample input/output where appropriate, and finish with the result. Practise explaining the logic in your own words.</p>
+</main>
+<footer>C++ practical practice · Arrays, stacks, and queues only for data structures.</footer>
+<script>
+  const boxes = [...document.querySelectorAll('.done')];
+  const progressText = document.getElementById('progressText');
+  const progressFill = document.getElementById('progressFill');
+  function updateProgress() {
+    const done = boxes.filter(b => b.checked).length;
+    progressText.textContent = `${done} of ${boxes.length} completed`;
+    progressFill.style.width = `${done / boxes.length * 100}%`;
+  }
+  boxes.forEach(b => b.addEventListener('change', updateProgress));
+  const search = document.getElementById('search');
+  const cards = [...document.querySelectorAll('.card')];
+  const empty = document.getElementById('empty');
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    cards.forEach(card => {
+      const match = (card.innerText + ' ' + card.dataset.search).toLowerCase().includes(q);
+      card.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    empty.style.display = shown ? 'none' : 'block';
+  });
+  const toggleAll = document.getElementById('toggleAll');
+  toggleAll.addEventListener('click', () => {
+    const visible = cards.filter(c => c.style.display !== 'none');
+    const shouldOpen = visible.some(c => !c.querySelector('details').open);
+    visible.forEach(c => c.querySelector('details').open = shouldOpen);
+    toggleAll.textContent = shouldOpen ? 'Close all' : 'Open all';
+  });
+</script>
+</body>
+</html>
